@@ -1,5 +1,9 @@
 Revision history for Perl extension Net::Rsh.
+===================================================
 
+0.02  Mon Dec 09 2002
+	- some code cleaning
+	
 0.01  Fri Jul 19 14:45:45 2002
 	- original version; created by h2xs 1.21 with options
 		-XA -n Net::Rsh

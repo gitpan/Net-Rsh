@@ -1,6 +1,8 @@
 Net/Rsh version 0.01
 ====================
 
+Net::Rsh - perl client for Rsh protocol. 
+
 INSTALLATION
 
 To install this module type the following:
@@ -15,6 +17,7 @@ DEPENDENCIES
 This module requires these other modules and libraries:
 
 IO::Socket
+Errno
 
 COPYRIGHT AND LICENCE
 

@@ -4,6 +4,6 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     'NAME'		=> 'Net::Rsh',
     'VERSION_FROM'	=> 'Rsh.pm',
-    'PREREQ_PM'		=> { 'IO::Socket' => 0 }, 
+    'PREREQ_PM'		=> { 'IO::Socket' => 0 , 'Errno' => 0 }, 
     'dist'		=> { 'COMPRESS' => 'gzip','SUFFIX'   => 'gz' }
 );

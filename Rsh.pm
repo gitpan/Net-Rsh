@@ -3,12 +3,13 @@ package Net::Rsh;
 use strict;
 use IO::Socket;
 use Carp;
+use Errno;
 
 require Exporter;
 
 use vars qw($VERSION @ISA @EXPORT);
 
-$VERSION=0.01;
+$VERSION=0.02;
 
 @ISA = qw(Exporter);
 @EXPORT = qw(&rsh);
@@ -16,10 +17,10 @@ $VERSION=0.01;
 sub new {
 	my $class=shift;
 	my $self={ };
-	return bless $self,$class;	
+	return bless $self,$class;
 }
 
-sub rsh { 
+sub rsh {
 	my ($self,$host,$local_user,$remote_user,$cmd)=@_;
 	croak("Usage: \$c->rsh(\$host,\$local_user,\$remote_user,\$cmd)") unless @_ == 5;
 
@@ -32,17 +33,16 @@ sub rsh {
                                                                                                                                   
 	while($try) {                                                                                                                      
 		if($port<$start_port) {croak "All ports in use";}                                                            
-		$socket = IO::Socket::INET->new(PeerAddr=>$host,                                                                           
-                                		PeerPort=>'514',                                                                                   
-                                		LocalPort=>$port,                                                                                  
-                                		Proto=>"tcp",                                                                                      
-                                		Type=>SOCK_STREAM);                                                                                
-		if(!defined $socket) {                                                                                                             
-        		if($!==98) {
-                		$port-=1;                                                                                                          
-        		} else {croak "$!";}                                                                                               
-		} else { $try=0;}                                                                                                                  
-                                                                                                                                   
+		$socket = IO::Socket::INET->new(PeerAddr=>$host,
+                                		PeerPort=>'514',
+                                		LocalPort=>$port,
+                                		Proto=>"tcp");
+
+		if(!defined $socket) {
+        		if($!{EADDRINUSE}) {
+                		$port-=1;
+        		} else {croak $!;}
+		} else { $try=0; }
 	}                                                                                                                                  
 
 	print $socket "0\0";                                                                                                               
