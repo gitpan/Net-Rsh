@@ -1,6 +1,12 @@
 Revision history for Perl extension Net::Rsh.
 ===================================================
 
+0.03  Wed Mar 14 18:24:23 CET 2007
+	- Module maintenance transferred RIIKI -> ASLETT
+	- Minor corrections for:
+		http://rt.cpan.org/Ticket/Display.html?id=23153
+		http://rt.cpan.org/Ticket/Display.html?id=22885
+
 0.02  Mon Dec 09 2002
 	- some code cleaning
 	

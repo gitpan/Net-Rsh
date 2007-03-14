@@ -6,9 +6,15 @@
 # change 'tests => 1' to 'tests => last_test_to_print';
 
 use Test;
-BEGIN { plan tests => 1 };
+BEGIN { plan tests => 2 };
+use vars qw( $loaded );
+END { print "not ok 1\n" unless $loaded; }
 use Net::Rsh;
-ok(1); # If we made it this far, we're ok.
+$loaded++;
+ok($loaded); # If we made it this far, we're ok.
+
+my $r = Net::Rsh->new();
+ok($r);
 
 #########################
 
