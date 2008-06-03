@@ -1,7 +1,7 @@
 --- #YAML:1.0
 name: Net-Rsh
 abstract: Perl client for Rsh protocol
-version: 0.04
+version: 0.05
 author:
   - Oleg Prokopyev <riiki@cpan.org>
   - Marc Aslett <aslett@cpan.org>  # co-maintainer
@@ -12,7 +12,7 @@ installdirs: site
 provides:
   Net::Rsh:
     file: lib/Net/Rsh.pm
-    version: 0.04
+    version: 0.05
 
 requires:
   IO::Socket: 0
