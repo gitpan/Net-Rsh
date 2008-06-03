@@ -9,7 +9,7 @@ require Exporter;
 
 use vars qw($VERSION @ISA @EXPORT);
 
-$VERSION=0.04;
+$VERSION=0.03;
 
 @ISA = qw(Exporter);
 @EXPORT = qw(&rsh);
